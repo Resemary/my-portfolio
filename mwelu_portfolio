@@ -1,0 +1,1289 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rosemary | Data Scientist Portfolio</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================================
+           GENERAL STYLES
+        =================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #f8fafc;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #667085;
+            max-width: 650px;
+            margin: auto;
+        }
+
+
+        /* ================================
+           NAVIGATION
+        =================================== */
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #087f8c;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #087f8c;
+        }
+
+
+        /* ================================
+           HERO
+        =================================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 85% 20%, #d9f3f5 0%, transparent 30%),
+                radial-gradient(circle at 10% 80%, #e8f5f2 0%, transparent 30%),
+                #f8fafc;
+            padding-top: 75px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-small {
+            color: #087f8c;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(48px, 7vw, 78px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #087f8c;
+        }
+
+        .hero-tagline {
+            font-size: 23px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            color: #667085;
+            max-width: 600px;
+            margin-bottom: 35px;
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #087f8c;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #066a75;
+        }
+
+        .btn-outline {
+            border: 2px solid #087f8c;
+            color: #087f8c;
+        }
+
+        .btn-outline:hover {
+            background: #087f8c;
+            color: white;
+        }
+
+        .hero-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .hero-card-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .hero-card p {
+            color: #667085;
+        }
+
+
+        /* ================================
+           ABOUT
+        =================================== */
+
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: #475467;
+        }
+
+        .quote {
+            padding: 25px;
+            border-left: 4px solid #087f8c;
+            background: #f2fbfc;
+            font-size: 20px;
+            font-weight: 600;
+            font-style: italic;
+            margin-top: 25px;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .highlight {
+            padding: 25px;
+            background: #f8fafc;
+            border-radius: 15px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .highlight h4 {
+            margin-bottom: 8px;
+            color: #087f8c;
+        }
+
+        .highlight p {
+            font-size: 14px;
+            color: #667085;
+        }
+
+
+        /* ================================
+           PROJECTS
+        =================================== */
+
+        .projects {
+            background: #f8fafc;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 32px;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+        }
+
+        .project-number {
+            color: #087f8c;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #667085;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #e9f7f8;
+            color: #087f8c;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+        /* ================================
+           SKILLS
+        =================================== */
+
+        .skills {
+            background: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            text-align: center;
+            padding: 25px 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: #087f8c;
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .skill h4 {
+            margin-bottom: 6px;
+        }
+
+        .skill p {
+            color: #667085;
+            font-size: 13px;
+        }
+
+
+        /* ================================
+           EDUCATION
+        =================================== */
+
+        .education {
+            background: #f8fafc;
+        }
+
+        .education-card {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-left: 5px solid #087f8c;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+        }
+
+        .education-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+        }
+
+        .education-card .institution {
+            color: #087f8c;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+
+        .education-card p {
+            color: #667085;
+        }
+
+
+        /* ================================
+           EXPERIENCE
+        =================================== */
+
+        .experience {
+            background: white;
+        }
+
+        .experience-card {
+            max-width: 850px;
+            margin: auto;
+            padding: 35px;
+            background: #f8fafc;
+            border-radius: 15px;
+        }
+
+        .experience-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+        }
+
+        .experience-card .place {
+            color: #087f8c;
+            font-weight: 700;
+            margin: 7px 0 18px;
+        }
+
+        .experience-card ul {
+            padding-left: 20px;
+            color: #667085;
+        }
+
+
+        /* ================================
+           ACHIEVEMENTS
+        =================================== */
+
+        .achievements {
+            background: #f8fafc;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .achievement {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .achievement-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .achievement h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .achievement p {
+            color: #667085;
+            font-size: 14px;
+        }
+
+
+        /* ================================
+           CONTACT
+        =================================== */
+
+        .contact {
+            background: #102a2e;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title p {
+            color: #c7d7d9;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-text {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            color: #c7d7d9;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: 12px 20px;
+            border: 1px solid #527277;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            background: #087f8c;
+            border-color: #087f8c;
+        }
+
+
+        /* ================================
+           FOOTER
+        =================================== */
+
+        footer {
+            background: #0b1f22;
+            color: #9fb5b8;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+
+        /* ================================
+           RESPONSIVE DESIGN
+        =================================== */
+
+        @media (max-width: 900px) {
+
+            .hero-content,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 120px 0 70px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-tagline {
+                font-size: 19px;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================================
+     NAVIGATION
+================================= -->
+
+<header>
+    <div class="container">
+        <nav>
+
+            <a href="#home" class="logo">
+                R<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </div>
+</header>
+
+
+<!-- ================================
+     HERO SECTION
+================================= -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div>
+
+                <div class="hero-small">
+                    Data Science • Machine Learning • AI
+                </div>
+
+                <h1>
+                    Turning Data Into
+                    <span>Impact.</span>
+                </h1>
+
+                <div class="hero-tagline">
+                    Where Data Meets Purpose.
+                </div>
+
+                <p class="hero-description">
+                    I’m a Data Scientist passionate about transforming
+                    data into meaningful insights, intelligent models,
+                    and practical solutions to real-world problems—
+                    particularly in healthcare.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        Explore My Work
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        Let's Connect
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="hero-card-icon">
+                    🧠📊
+                </div>
+
+                <h3>
+                    Data. Intelligence. Impact.
+                </h3>
+
+                <p>
+                    I explore patterns hidden inside data and turn
+                    them into insights that can support smarter
+                    decisions and better outcomes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     ABOUT SECTION
+================================= -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>
+                A little about the person behind the datasets,
+                models, and occasional debugging battles.
+            </p>
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <h3>
+                    Curious about data. Serious about impact.
+                </h3>
+
+                <p>
+                    I’m a Data Scientist who believes data should do
+                    more than sit in spreadsheets—it should tell
+                    stories, solve problems, and make things happen.
+                </p>
+
+                <p>
+                    Slightly obsessed with finding the
+                    <strong>“aha!”</strong> hiding in the data.
+                </p>
+
+                <p>
+                    My academic journey has allowed me to explore
+                    programming, data analysis, machine learning,
+                    artificial intelligence, and web technologies.
+                </p>
+
+                <p>
+                    I am particularly interested in applying Data
+                    Science and Machine Learning to healthcare,
+                    where data-driven solutions can contribute to
+                    earlier risk identification, better decision
+                    support, and improved health outcomes.
+                </p>
+
+                <div class="quote">
+                    “I don't just analyze data. I interrogate it
+                    until it talks.”
+                </div>
+
+            </div>
+
+
+            <div class="about-highlights">
+
+                <div class="highlight">
+                    <h4>📊 Data Science</h4>
+                    <p>
+                        Exploring, cleaning, analyzing and
+                        visualizing data to uncover meaningful
+                        patterns.
+                    </p>
+                </div>
+
+                <div class="highlight">
+                    <h4>🤖 Machine Learning</h4>
+                    <p>
+                        Building and evaluating predictive models
+                        for real-world problems.
+                    </p>
+                </div>
+
+                <div class="highlight">
+                    <h4>🏥 HealthTech</h4>
+                    <p>
+                        Applying technology and data science to
+                        healthcare challenges.
+                    </p>
+                </div>
+
+                <div class="highlight">
+                    <h4>💡 Problem Solving</h4>
+                    <p>
+                        Turning complex problems into practical,
+                        data-driven solutions.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     PROJECTS SECTION
+================================= -->
+
+<section class="projects" id="projects">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Featured Projects</h2>
+
+            <p>
+                Real-world problems, datasets, experiments,
+                models—and the lessons learned along the way.
+            </p>
+
+        </div>
+
+
+        <div class="project-grid">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 01 • MACHINE LEARNING
+                </div>
+
+                <h3>
+                    Gestational Diabetes Risk Prediction
+                </h3>
+
+                <p>
+                    A machine learning project focused on predicting
+                    the risk of gestational diabetes using maternal
+                    and pregnancy-related factors.
+                </p>
+
+                <p>
+                    The project explores data preprocessing,
+                    feature analysis, class balancing, model
+                    comparison, hyperparameter tuning and model
+                    explainability.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Scikit-learn</span>
+                    <span class="tag">Random Forest</span>
+                    <span class="tag">SHAP</span>
+                    <span class="tag">Streamlit</span>
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 02 • DATA ANALYSIS
+                </div>
+
+                <h3>
+                    Healthcare Data Analysis
+                </h3>
+
+                <p>
+                    Exploratory analysis of healthcare datasets to
+                    identify trends, distributions, relationships and
+                    patterns that can support data-driven insights.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Data Cleaning</span>
+                    <span class="tag">EDA</span>
+                    <span class="tag">Visualization</span>
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 03 • ARTIFICIAL INTELLIGENCE
+                </div>
+
+                <h3>
+                    AI for Healthcare
+                </h3>
+
+                <p>
+                    An exploration of how artificial intelligence and
+                    machine learning can be applied to healthcare
+                    problems, with emphasis on prediction,
+                    decision support and responsible use of data.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Artificial Intelligence</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Healthcare</span>
+                    <span class="tag">Research</span>
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    PROJECT 04 • DATA VISUALIZATION
+                </div>
+
+                <h3>
+                    Data Storytelling & Visualization
+                </h3>
+
+                <p>
+                    Transforming raw datasets into clear visual
+                    stories that make trends, comparisons and
+                    patterns easier to understand.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Excel</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Charts</span>
+                    <span class="tag">Data Storytelling</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     SKILLS SECTION
+================================= -->
+
+<section class="skills" id="skills">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>My Toolkit</h2>
+
+            <p>
+                Technologies and skills I use to turn ideas
+                into data-driven solutions.
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div class="skill">
+                <div class="skill-icon">🐍</div>
+                <h4>Python</h4>
+                <p>Data analysis and machine learning</p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">📊</div>
+                <h4>Pandas</h4>
+                <p>Data manipulation and analysis</p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🤖</div>
+                <h4>Machine Learning</h4>
+                <p>Predictive modelling</p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🧠</div>
+                <h4>Artificial Intelligence</h4>
+                <p>AI concepts and applications</p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">📈</div>
+                <h4>Data Visualization</h4>
+                <p>Visual storytelling</p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🗄️</div>
+                <h4>SQL</h4>
+                <p>Working with structured data</p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🌐</div>
+                <h4>HTML & CSS</h4>
+                <p>Web development</p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🔬</div>
+                <h4>Research</h4>
+                <p>Problem investigation and analysis</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     EDUCATION
+================================= -->
+
+<section class="education" id="education">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Education</h2>
+            <p>
+                Building the knowledge behind the solutions.
+            </p>
+        </div>
+
+
+        <div class="education-card">
+
+            <h3>
+                Bachelor of Science in Business Information Technology
+            </h3>
+
+            <div class="institution">
+                Dedan Kimathi University of Technology
+            </div>
+
+            <p>
+                Academic focus includes Information Technology,
+                programming, web development, networking, data
+                science, machine learning and artificial
+                intelligence.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     EXPERIENCE
+================================= -->
+
+<section class="experience" id="experience">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Experience</h2>
+
+            <p>
+                Learning by solving real problems.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <h3>
+                ICT / IT Attachment
+            </h3>
+
+            <div class="place">
+                National Library / Nyeri Town Library
+            </div>
+
+            <ul>
+
+                <li>
+                    Supported library management system records
+                    and catalogue updates.
+                </li>
+
+                <li>
+                    Assisted with troubleshooting computer,
+                    login and synchronization issues.
+                </li>
+
+                <li>
+                    Worked with system reports including overdue
+                    and new acquisition reports.
+                </li>
+
+                <li>
+                    Assisted with data backups and restoration
+                    processes.
+                </li>
+
+                <li>
+                    Participated in diagnosing slow network and
+                    computer performance issues.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     ACHIEVEMENTS
+================================= -->
+
+<section class="achievements">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Achievements & Learning</h2>
+
+            <p>
+                Every project, course and challenge is another
+                step forward.
+            </p>
+
+        </div>
+
+
+        <div class="achievement-grid">
+
+            <div class="achievement">
+
+                <div class="achievement-icon">
+                    🏆
+                </div>
+
+                <h3>
+                    Data Science & AI
+                </h3>
+
+                <p>
+                    Active participation in Data Science and
+                    Artificial Intelligence learning communities.
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <div class="achievement-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Machine Learning
+                </h3>
+
+                <p>
+                    Experience developing and evaluating
+                    predictive machine learning models.
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <div class="achievement-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Continuous Learning
+                </h3>
+
+                <p>
+                    Continuously expanding skills in Python,
+                    data analytics, AI and technology.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     CONTACT
+================================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                Have a project, opportunity, research idea,
+                or simply want to talk data?
+            </p>
+
+        </div>
+
+        <p class="contact-text">
+            I’m always open to learning, collaborating and
+            discovering new ways to turn data into meaningful
+            solutions.
+        </p>
+
+
+        <div class="contact-links">
+
+            <a href="mailto:your-email@example.com"
+               class="contact-link">
+                📧 Email
+            </a>
+
+            <a href="#"
+               class="contact-link">
+                💼 LinkedIn
+            </a>
+
+            <a href="#"
+               class="contact-link">
+                🐙 GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     FOOTER
+================================= -->
+
+<footer>
+
+    <p>
+        © 2026 Rosemary. Built with curiosity,
+        code & a little caffeine. ☕📊
+    </p>
+
+</footer>
+
+
+</body>
+</html>
+```
